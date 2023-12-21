@@ -27,6 +27,18 @@ class Cube:
         self.vertices_cube8 = self.vertices_cube7 + np.array([0, 0, 2])
         self.vertices_cube9 = self.vertices_cube7 + np.array([2, 0, 0])
         self.vertices_cube10 = self.vertices_cube9 + np.array([0, 0, 2])
+        self.vertices_cube11 = self.vertices_cube + np.array([0, -2, 0])
+        self.vertices_cube12 = self.vertices_cube4 + np.array([0, 0, 2])
+        self.vertices_cube13 = self.vertices_cube5 + np.array([0, 0, 2])
+        self.vertices_cube14 = self.vertices_cube6 + np.array([0, 0, 2])
+        self.vertices_cube15 = self.vertices_cube8 + np.array([0, 0, 2])
+        self.vertices_cube16 = self.vertices_cube10 + np.array([0, 0, 2])
+
+
+
+
+
+
 
 
         self.projection_matrix = np.array([
@@ -44,6 +56,15 @@ class Cube:
         self.projected_vertices8 = [np.zeros(3) for _ in range(len(self.vertices_cube8))]
         self.projected_vertices9 = [np.zeros(3) for _ in range(len(self.vertices_cube9))]
         self.projected_vertices10 = [np.zeros(3) for _ in range(len(self.vertices_cube10))]
+        self.projected_vertices11 = [np.zeros(3) for _ in range(len(self.vertices_cube11))]
+        self.projected_vertices12 = [np.zeros(3) for _ in range(len(self.vertices_cube12))]
+        self.projected_vertices13 = [np.zeros(3) for _ in range(len(self.vertices_cube13))]
+        self.projected_vertices14 = [np.zeros(3) for _ in range(len(self.vertices_cube14))]
+        self.projected_vertices15 = [np.zeros(3) for _ in range(len(self.vertices_cube15))]
+        self.projected_vertices16 = [np.zeros(3) for _ in range(len(self.vertices_cube16))]
+
+
+
 
 
 
@@ -205,6 +226,84 @@ class Cube:
             # Update cube position based on camera position
             self.projected_vertices10[i] = [x + camera_position[0], y + camera_position[1], z + camera_position[2]]
 
+        for i, vertex in enumerate(self.vertices_cube11):
+            rotated_vertex = np.dot(rotation_matrix_z, vertex.reshape((3, 1)))
+            rotated_vertex = np.dot(rotation_matrix_y, rotated_vertex)
+            rotated_vertex = np.dot(rotation_matrix_x, rotated_vertex)
+            projected_vertex = np.dot(self.projection_matrix, rotated_vertex)
+
+            x = int(projected_vertex[0, 0] * self.scale_factor)
+            y = int(projected_vertex[1, 0] * self.scale_factor)
+            z = int(projected_vertex[2, 0] * self.scale_factor)
+
+            # Update cube position based on camera position
+            self.projected_vertices11[i] = [x + camera_position[0], y + camera_position[1], z + camera_position[2]]
+
+        for i, vertex in enumerate(self.vertices_cube12):
+            rotated_vertex = np.dot(rotation_matrix_z, vertex.reshape((3, 1)))
+            rotated_vertex = np.dot(rotation_matrix_y, rotated_vertex)
+            rotated_vertex = np.dot(rotation_matrix_x, rotated_vertex)
+            projected_vertex = np.dot(self.projection_matrix, rotated_vertex)
+
+            x = int(projected_vertex[0, 0] * self.scale_factor)
+            y = int(projected_vertex[1, 0] * self.scale_factor)
+            z = int(projected_vertex[2, 0] * self.scale_factor)
+
+            # Update cube position based on camera position
+            self.projected_vertices12[i] = [x + camera_position[0], y + camera_position[1], z + camera_position[2]]
+
+        for i, vertex in enumerate(self.vertices_cube13):
+            rotated_vertex = np.dot(rotation_matrix_z, vertex.reshape((3, 1)))
+            rotated_vertex = np.dot(rotation_matrix_y, rotated_vertex)
+            rotated_vertex = np.dot(rotation_matrix_x, rotated_vertex)
+            projected_vertex = np.dot(self.projection_matrix, rotated_vertex)
+
+            x = int(projected_vertex[0, 0] * self.scale_factor)
+            y = int(projected_vertex[1, 0] * self.scale_factor)
+            z = int(projected_vertex[2, 0] * self.scale_factor)
+
+            # Update cube position based on camera position
+            self.projected_vertices13[i] = [x + camera_position[0], y + camera_position[1], z + camera_position[2]]
+
+        for i, vertex in enumerate(self.vertices_cube14):
+            rotated_vertex = np.dot(rotation_matrix_z, vertex.reshape((3, 1)))
+            rotated_vertex = np.dot(rotation_matrix_y, rotated_vertex)
+            rotated_vertex = np.dot(rotation_matrix_x, rotated_vertex)
+            projected_vertex = np.dot(self.projection_matrix, rotated_vertex)
+
+            x = int(projected_vertex[0, 0] * self.scale_factor)
+            y = int(projected_vertex[1, 0] * self.scale_factor)
+            z = int(projected_vertex[2, 0] * self.scale_factor)
+
+            # Update cube position based on camera position
+            self.projected_vertices14[i] = [x + camera_position[0], y + camera_position[1], z + camera_position[2]]
+
+        for i, vertex in enumerate(self.vertices_cube15):
+            rotated_vertex = np.dot(rotation_matrix_z, vertex.reshape((3, 1)))
+            rotated_vertex = np.dot(rotation_matrix_y, rotated_vertex)
+            rotated_vertex = np.dot(rotation_matrix_x, rotated_vertex)
+            projected_vertex = np.dot(self.projection_matrix, rotated_vertex)
+
+            x = int(projected_vertex[0, 0] * self.scale_factor)
+            y = int(projected_vertex[1, 0] * self.scale_factor)
+            z = int(projected_vertex[2, 0] * self.scale_factor)
+
+            # Update cube position based on camera position
+            self.projected_vertices15[i] = [x + camera_position[0], y + camera_position[1], z + camera_position[2]]
+
+        for i, vertex in enumerate(self.vertices_cube16):
+            rotated_vertex = np.dot(rotation_matrix_z, vertex.reshape((3, 1)))
+            rotated_vertex = np.dot(rotation_matrix_y, rotated_vertex)
+            rotated_vertex = np.dot(rotation_matrix_x, rotated_vertex)
+            projected_vertex = np.dot(self.projection_matrix, rotated_vertex)
+
+            x = int(projected_vertex[0, 0] * self.scale_factor)
+            y = int(projected_vertex[1, 0] * self.scale_factor)
+            z = int(projected_vertex[2, 0] * self.scale_factor)
+
+            # Update cube position based on camera position
+            self.projected_vertices16[i] = [x + camera_position[0], y + camera_position[1], z + camera_position[2]]
+
 
     def draw(self, screen):
         from Texture import draw_texture
@@ -215,6 +314,15 @@ class Cube:
             'bottom': pygame.image.load('p.png'),
             'left': pygame.image.load('p.png'),
             'right': pygame.image.load('p.png')
+
+        }
+        textures2 = {
+            'front': pygame.image.load('gravel.png'),
+            'back': pygame.image.load('gravel.png'),
+            'top': pygame.image.load('gravel.png'),
+            'bottom': pygame.image.load('gravel.png'),
+            'left': pygame.image.load('gravel.png'),
+            'right': pygame.image.load('gravel.png')
         }
 
         draw_texture(screen, [self.projected_vertices[i] for i in [0, 1, 2, 3]], textures['front'])
@@ -286,4 +394,46 @@ class Cube:
         draw_texture(screen, [self.projected_vertices10[i] for i in [3, 2, 6, 7]], textures['bottom'])
         draw_texture(screen, [self.projected_vertices10[i] for i in [0, 3, 7, 4]], textures['left'])
         draw_texture(screen, [self.projected_vertices10[i] for i in [1, 2, 6, 5]], textures['right'])
+
+        draw_texture(screen, [self.projected_vertices11[i] for i in [0, 1, 2, 3]], textures2['front'])
+        draw_texture(screen, [self.projected_vertices11[i] for i in [4, 5, 6, 7]], textures2['back'])
+        draw_texture(screen, [self.projected_vertices11[i] for i in [0, 1, 5, 4]], textures2['top'])
+        draw_texture(screen, [self.projected_vertices11[i] for i in [3, 2, 6, 7]], textures2['bottom'])
+        draw_texture(screen, [self.projected_vertices11[i] for i in [0, 3, 7, 4]], textures2['left'])
+        draw_texture(screen, [self.projected_vertices11[i] for i in [1, 2, 6, 5]], textures2['right'])
+
+        draw_texture(screen, [self.projected_vertices12[i] for i in [0, 1, 2, 3]], textures['front'])
+        draw_texture(screen, [self.projected_vertices12[i] for i in [4, 5, 6, 7]], textures['back'])
+        draw_texture(screen, [self.projected_vertices12[i] for i in [0, 1, 5, 4]], textures['top'])
+        draw_texture(screen, [self.projected_vertices12[i] for i in [3, 2, 6, 7]], textures['bottom'])
+        draw_texture(screen, [self.projected_vertices12[i] for i in [0, 3, 7, 4]], textures['left'])
+        draw_texture(screen, [self.projected_vertices12[i] for i in [1, 2, 6, 5]], textures['right'])
+
+        draw_texture(screen, [self.projected_vertices13[i] for i in [0, 1, 2, 3]], textures['front'])
+        draw_texture(screen, [self.projected_vertices13[i] for i in [4, 5, 6, 7]], textures['back'])
+        draw_texture(screen, [self.projected_vertices13[i] for i in [0, 1, 5, 4]], textures['top'])
+        draw_texture(screen, [self.projected_vertices13[i] for i in [3, 2, 6, 7]], textures['bottom'])
+        draw_texture(screen, [self.projected_vertices13[i] for i in [0, 3, 7, 4]], textures['left'])
+        draw_texture(screen, [self.projected_vertices13[i] for i in [1, 2, 6, 5]], textures['right'])
+
+        draw_texture(screen, [self.projected_vertices14[i] for i in [0, 1, 2, 3]], textures['front'])
+        draw_texture(screen, [self.projected_vertices14[i] for i in [4, 5, 6, 7]], textures['back'])
+        draw_texture(screen, [self.projected_vertices14[i] for i in [0, 1, 5, 4]], textures['top'])
+        draw_texture(screen, [self.projected_vertices14[i] for i in [3, 2, 6, 7]], textures['bottom'])
+        draw_texture(screen, [self.projected_vertices14[i] for i in [0, 3, 7, 4]], textures['left'])
+        draw_texture(screen, [self.projected_vertices14[i] for i in [1, 2, 6, 5]], textures['right'])
+
+        draw_texture(screen, [self.projected_vertices15[i] for i in [0, 1, 2, 3]], textures['front'])
+        draw_texture(screen, [self.projected_vertices15[i] for i in [4, 5, 6, 7]], textures['back'])
+        draw_texture(screen, [self.projected_vertices15[i] for i in [0, 1, 5, 4]], textures['top'])
+        draw_texture(screen, [self.projected_vertices15[i] for i in [3, 2, 6, 7]], textures['bottom'])
+        draw_texture(screen, [self.projected_vertices15[i] for i in [0, 3, 7, 4]], textures['left'])
+        draw_texture(screen, [self.projected_vertices15[i] for i in [1, 2, 6, 5]], textures['right'])
+
+        draw_texture(screen, [self.projected_vertices16[i] for i in [0, 1, 2, 3]], textures['front'])
+        draw_texture(screen, [self.projected_vertices16[i] for i in [4, 5, 6, 7]], textures['back'])
+        draw_texture(screen, [self.projected_vertices16[i] for i in [0, 1, 5, 4]], textures['top'])
+        draw_texture(screen, [self.projected_vertices16[i] for i in [3, 2, 6, 7]], textures['bottom'])
+        draw_texture(screen, [self.projected_vertices16[i] for i in [0, 3, 7, 4]], textures['left'])
+        draw_texture(screen, [self.projected_vertices16[i] for i in [1, 2, 6, 5]], textures['right'])
 

@@ -1,6 +1,8 @@
 import numpy as np
 import pygame
 from math import cos, sin
+from Texture import draw_texture
+
 
 class Cube:
     def __init__(self, scale_factor, width=0, height=0):
@@ -306,7 +308,6 @@ class Cube:
 
 
     def draw(self, screen):
-        from Texture import draw_texture
         textures = {
             'front': pygame.image.load('p.png'),
             'back': pygame.image.load('p.png'),
